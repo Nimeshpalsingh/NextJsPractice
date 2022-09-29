@@ -28,10 +28,13 @@ export async function getStaticProps(context) {
 const Plotsland = ({data}) => {
   return (
     <div>
+        <div className="container">
+<div className="row">
+    
         <Navbar/>
         
-        {data.slice(0,5).map((x)=>{ return( <div className="col-md-6 mt-2" key={x.pid}>
-        <Link href={x.pid} key={x.pid} passHref={true}>
+        {data.map((x)=>{ return( <div className="col-md-6 mt-2" key={x.pid}>
+        <Link href={x.adtitle+x.pid} key={x.pid} passHref={true}>
 
       <div className="card">
             <div className="row">
@@ -67,8 +70,8 @@ const Plotsland = ({data}) => {
         </div> )})}
 
 
-
-
+        </div>
+        </div>
         
         </div>
   )
