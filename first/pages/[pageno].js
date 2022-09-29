@@ -1,36 +1,81 @@
+import { Website } from "./Variable"
+import Button from '@mui/material/Button';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
-// export async function getStaticPaths() {
-//     return {
-//       paths: [
-//         // String variant:
-//         '/blog/first-post',
-//         // Object variant:
-//         { params: { slug: 82} },
-//       ],
-//       fallback: true,
-//     }
-//   }
+import { AiOutlineHeart } from 'react-icons/ai';
+import { FaRegUserCircle, FaShareAltSquare } from 'react-icons/fa';
+import { MdArrowBack } from 'react-icons/md';
+import { Carousel } from 'react-responsive-carousel';
 
 
+export async function getStaticPaths() {
 
-export async function getStaticProps(context) {
-    const res = await fetch(`${Website}mycarddetails.php?card_id=`+82)
-    const data = await res.json()
-console.log(data);
-    if (!data) {
-      return {
-        redirect: {
-          destination: '/',
-          permanent: false,
-          // statusCode: 301
-        },
-      }
-    }
-  
-    return {
+    const res = await fetch(`${Website}plotlandget.php`)
+    const data = await res.json();
+const paths = data.map((y)=>{
+    return{  
+params:{
+
+pageno:y.pid.toString(),
+
+},
+
+}});
+
+
+return{
+paths,
+fallback:false,
+
+
+}
+
+
+
+  }
+
+
+  export async function getStaticProps(context) {
+  const id =  context.params.pageno;
+    const res = await fetch(`${Website}mycarddetails.php?card_id=`+id)
+    const data = await res.json();
+
+  return {
       props: { data }, // will be passed to the page component as props
     }
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+// export async function getStaticProps(context) {
+//     const res = await fetch(`${Website}mycarddetails.php?card_id=`+82)
+//     const data = await res.json()
+// console.log(data);
+//     if (!data) {
+//       return {
+//         redirect: {
+//           destination: '/',
+//           permanent: false,
+//           // statusCode: 301
+//         },
+//       }
+//     }
+  
+//     return {
+//       props: { data }, // will be passed to the page component as props
+//     }
+//   }
 
 
 function pageno({data}) {
@@ -43,7 +88,7 @@ function pageno({data}) {
     <div className="row" key={y}>
       <div className="row">
         <div className="col">
-          <Link to='/Plots&lands'><h5 className="text-start"><MdArrowBack size={35}/></h5></Link>
+   <h5 className="text-start"><MdArrowBack size={35}/></h5>
         </div>
         <div className="col">
           <h5 className="text-end"><FaShareAltSquare size={35}/></h5>
