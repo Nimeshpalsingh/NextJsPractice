@@ -36,8 +36,8 @@ const Plotsland = ({data}) => {
 <div className="row">
     <Search/>
        
-        
-        {data.map((x)=>{ return( <div className="col-md-6 mt-2" key={x.pid}>
+  
+        {data.map((x)=>{ return( <div className="col-md-6 mt-2 " key={x.pid}>
         <Link  scroll={false} href={`/property/PlotsLands/${slugify(x.name)}/${slugify(x.city)}/${slugify(x.region)}/${slugify(x.adtitle)}/${x.pid}`}   key={x.pid} passHref={true}>
       
 
@@ -75,9 +75,9 @@ const Plotsland = ({data}) => {
         </div> )})}
 
 
-        </div>  <Navbar />
+        </div>  <Navbar/>
         </div>
-      
+       
        
   )
 }
