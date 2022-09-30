@@ -31,7 +31,7 @@ export async function getStaticProps(context) {
 
 const Plotsland = ({data}) => {
   return (
-    <div>
+  
         <div className="container">
 <div className="row">
     <Search/>
@@ -75,10 +75,10 @@ const Plotsland = ({data}) => {
         </div> )})}
 
 
+        </div>  <Navbar />
         </div>
-        </div>
-        <Navbar />
-        </div>
+      
+       
   )
 }
 
