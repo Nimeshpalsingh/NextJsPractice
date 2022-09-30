@@ -1,10 +1,12 @@
 import Navbar from "../componet/Navbar"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Search from "../componet/Search";
 
 
 function index() {
   return (
     <div>
-
+<Search/>
 
 <Navbar/>
 

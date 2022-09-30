@@ -1,4 +1,5 @@
 import Navbar from "../componet/Navbar"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const About = () => {
   return (

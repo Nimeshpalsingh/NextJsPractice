@@ -1,4 +1,4 @@
-import { Website } from "../Variable"
+import { Website } from "../../../../../../Variable"
 import Button from '@mui/material/Button';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
@@ -7,48 +7,69 @@ import { FaRegUserCircle, FaShareAltSquare } from 'react-icons/fa';
 import { MdArrowBack } from 'react-icons/md';
 import { Carousel } from 'react-responsive-carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Link from "next/link";
 
 
-export async function getStaticPaths() {
+// export async function getStaticPaths() {
 
-    const res = await fetch(`${Website}plotlandget.php`)
-    const data = await res.json();
-const paths = data.map((y)=>{
-    return{  
-params:{
+//     const res = await fetch(`${Website}plotlandget.php`)
+//     const data = await res.json();
+// const paths = data.map((y)=>{
+//     return{  
+// params:{
 
-pageno:y.pid.toString(),
+// pageno:y.pid.toString(),
 
-},
+// },
 
-}});
-
-
-return{
-paths,
-fallback:false,
+// }});
 
 
-}
+// return{
+// paths,
+// fallback:true,
+
+
+// }
 
 
 
-  }
+//   }
 
 
-  export async function getStaticProps(context) {
-  const id =  context.params.pageno;
-  debugger;
-  console.log(id)
+  // export async function getStaticProps(context) {
+  // const id =  context.params.pageno;
+  // debugger;
+  // console.log(id)
+  //   const res = await fetch(`${Website}mycarddetails.php?card_id=`+id)
+  //   const data = await res.json();
+
+  // return {
+  //     props: { data }, // will be passed to the page component as props
+  //   }
+
+
+  // }
+
+  
+
+  export async function getServerSideProps(context) {
+    // Fetch data from external API
+
+    const id =  context.params.pageno;
+
+console.log(context.params)
+
+
+
     const res = await fetch(`${Website}mycarddetails.php?card_id=`+id)
-    const data = await res.json();
-
-  return {
-      props: { data }, // will be passed to the page component as props
-    }
-
-
+    const data = await res.json()
+  
+    // Pass data to the page via props
+    return { props: { data } }
   }
+
+
 
 
 
@@ -80,18 +101,20 @@ function pageno({data}) {
     <div>
         
        {data?.map((x,y)=>{ return(<div>
-    <div className="row" key={y}>
-      <div className="row">
+    <div className="row"  key={y}>
+      <div className="row position-fixed bg-white "style={{zIndex: '100'}} >
         <div className="col">
-   <h5 className="text-start"><MdArrowBack size={35}/></h5>
+        <Link  scroll={false} href="/Plotsland" ><a className="nav-link" >   <h5 className="text-start"><MdArrowBack size={35}/></h5>
+</a></Link>
+
         </div>
         <div className="col">
           <h5 className="text-end"><FaShareAltSquare size={35}/></h5>
         </div>
       </div>
     </div>
-    <div className="row">
-      <div className="col-lg-6 m-auto">
+    <div className="row mt-5 ">
+      <div className="col-lg-6 m-auto ">
         <Carousel  infiniteLoop={true} swipeable={true}>
           <div>
             <img src={`${Website}${x.imgpath}`} />
