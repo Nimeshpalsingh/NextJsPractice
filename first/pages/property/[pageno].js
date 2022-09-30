@@ -1,4 +1,4 @@
-import { Website } from "./Variable"
+import { Website } from "../Variable"
 import Button from '@mui/material/Button';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
@@ -6,6 +6,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FaRegUserCircle, FaShareAltSquare } from 'react-icons/fa';
 import { MdArrowBack } from 'react-icons/md';
 import { Carousel } from 'react-responsive-carousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export async function getStaticPaths() {
@@ -37,6 +38,8 @@ fallback:false,
 
   export async function getStaticProps(context) {
   const id =  context.params.pageno;
+  debugger;
+  console.log(id)
     const res = await fetch(`${Website}mycarddetails.php?card_id=`+id)
     const data = await res.json();
 
@@ -46,14 +49,6 @@ fallback:false,
 
 
   }
-
-
-
-
-
-
-
-
 
 
 

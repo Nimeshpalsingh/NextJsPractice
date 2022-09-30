@@ -34,7 +34,8 @@ const Plotsland = ({data}) => {
         <Navbar/>
         
         {data.map((x)=>{ return( <div className="col-md-6 mt-2" key={x.pid}>
-        <Link href={x.adtitle+x.pid} key={x.pid} passHref={true}>
+        <Link  href={`/property/${x.pid}`}     key={x.pid} passHref={true}>
+      
 
       <div className="card">
             <div className="row">
