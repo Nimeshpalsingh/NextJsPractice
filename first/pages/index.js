@@ -1,15 +1,20 @@
 import Navbar from "../componet/Navbar"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from "../componet/Search";
+import Catgory from "../componet/Catgory";
 
 
 function index() {
   return (
     <div>
-<Search/>
+<div className="container">
 
+
+<Search/>
+<Catgory/>
 <Navbar/>
 
+</div>
 
 
 
