@@ -8,6 +8,7 @@ import { MdArrowBack } from 'react-icons/md';
 import { Carousel } from 'react-responsive-carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from "next/link";
+import LazyLoad from "react-lazy-load";
 
 
 // export async function getStaticPaths() {
@@ -98,9 +99,10 @@ function pageno({data}) {
  
 
   return (
+    <LazyLoad>
     <div>
-        
-       {data?.map((x,y)=>{ return(<div>
+        <div className="container">
+       {  data?.map((x,y)=>{ return(<div>
     <div className="row"  key={y}>
       <div className="row position-fixed bg-white "style={{zIndex: '100'}} >
         <div className="col">
@@ -219,7 +221,7 @@ function pageno({data}) {
   </div>) })}
         
         
-        </div>
+        </div></div></LazyLoad>
   )
 }
 
