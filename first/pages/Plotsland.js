@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Navbar from '../componet/Navbar'
-var slugify = require('slugify')
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from '../componet/Search';
 import { Website } from '../Variable';
-
+import slugify from 'slugify';
 
 
 
