@@ -42,19 +42,19 @@ import { Website } from '../../../../../../../Variable';
 //   }
 
 
-//   export async function getStaticProps(context) {
-//   const id =  context.params.pageno;
-//   debugger;
-//   console.log(context)
-//     const res = await fetch(`${Website}mycarddetails.php?card_id=`+id)
-//     const data = await res.json();
+  // export async function getStaticProps(context) {
+  // const id =  context.params.pageno;
+  // debugger;
+  // console.log(context)
+  //   const res = await fetch(`${Website}mycarddetails.php?card_id=`+id)
+  //   const data = await res.json();
 
-//   return {
-//       props: { data }, // will be passed to the page component as props
-//     }
+  // return {
+  //     props: { data }, // will be passed to the page component as props
+  //   }
 
 
-//   }
+  // }
 
   
 
