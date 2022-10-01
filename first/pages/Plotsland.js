@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Navbar from '../componet/Navbar'
-import { Website } from './Variable';
 var slugify = require('slugify')
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from '../componet/Search';
+import { Website } from '../Variable';
 
 
 
@@ -60,7 +60,7 @@ const Plotsland = ({data}) => {
                   </p>
                   <p className="card-text">
                     <small className="text-muted">
-                      { x.postdate  }
+                      { x.postdate}
                     </small>
                   </p>
                   <p className="card-text">
