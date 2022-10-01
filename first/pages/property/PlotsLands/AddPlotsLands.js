@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { Box, FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AddPlotsLands() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => setdata(data);
+    const onSubmit = data => console.log(data);
 
 
   return (
@@ -20,7 +21,7 @@ function AddPlotsLands() {
         <Box sx={{ minWidth: '100%' }}>
       <FormControl fullWidth>
         <InputLabel    id="demo-simple-select-label">Type</InputLabel>
-        <Select   {...register("type", { required: true })}
+        <Select   {...register("type")}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
          
@@ -45,7 +46,7 @@ function AddPlotsLands() {
 <Box sx={{ minWidth: '100%' }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Listed by</InputLabel>
-        <Select  {...register("ownTyp", { required: true })}
+        <Select  {...register("ownTyp")}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
          
@@ -70,7 +71,7 @@ function AddPlotsLands() {
 
    <div className="input-group mb-3">
  
-   <TextField   {...register("area", { required: true })}  fullWidth id="outlined-basic" label="Plot & Land Area " variant="outlined" InputProps={{
+   <TextField   {...register("area")}  fullWidth id="outlined-basic" label="Plot & Land Area " variant="outlined" InputProps={{
             startAdornment: <InputAdornment position="start">ft2</InputAdornment>,
           }} />
 
@@ -78,7 +79,7 @@ function AddPlotsLands() {
 
 <div className="input-group mb-3">
 
-<TextField  {...register("length", { required: true })} fullWidth id="outlined-basic" label="Plot & Land Length " variant="outlined" 
+<TextField  {...register("length")} fullWidth id="outlined-basic" label="Plot & Land Length " variant="outlined" 
           InputProps={{
             startAdornment: <InputAdornment position="start">ft</InputAdornment>,
           }}/>
@@ -86,7 +87,7 @@ function AddPlotsLands() {
 </div>
 
 <div className="input-group mb-3">
-<TextField   {...register("width", { required: true })}  fullWidth id="outlined-basic" label="Plot & Land Width" variant="outlined" InputProps={{
+<TextField   {...register("width")}  fullWidth id="outlined-basic" label="Plot & Land Width" variant="outlined" InputProps={{
             startAdornment: <InputAdornment position="start">ft</InputAdornment>,
           }} />
 
@@ -94,7 +95,7 @@ function AddPlotsLands() {
 
 <div className="input-group mb-3">
  
-<TextField  {...register("price", { required: true })} fullWidth id="outlined-basic" label="Plot & Land Pricing" variant="outlined" InputProps={{
+<TextField  {...register("price" )} fullWidth id="outlined-basic" label="Plot & Land Pricing" variant="outlined" InputProps={{
             startAdornment: <InputAdornment position="start">Rs</InputAdornment>,
           }} />
 
@@ -102,7 +103,7 @@ function AddPlotsLands() {
 
 <div className="input-group mb-3">
 
-  <TextField   {...register("pname", { required: true })} fullWidth id="outlined-basic" label="Project Name" variant="outlined" />
+  <TextField   {...register("pname")} fullWidth id="outlined-basic" label="Project Name" variant="outlined" />
 
 </div>
 
@@ -116,7 +117,7 @@ function AddPlotsLands() {
 <Box sx={{ minWidth: '100%' }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Facing</InputLabel>
-        <Select  {...register("face", { required: true })}
+        <Select  {...register("face")}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
     
@@ -152,18 +153,18 @@ function AddPlotsLands() {
 
 <div className="input-group mb-3">
  
-<TextField  {...register("title", { required: true })} fullWidth id="outlined-basic" label="Enter Ad Title" variant="outlined" />
+<TextField  {...register("title")} fullWidth id="outlined-basic" label="Enter Ad Title" variant="outlined" />
 
 
 </div>
 <div className="input-group mb-3">
 
-  <textarea  {...register("des", { required: true })}  placeholder='Describe what you are selling' className="form-control mb-5" aria-label="Default" aria-describedby="inputGroup-sizing-default" ></textarea>
+  <textarea  {...register("des")}  placeholder='Describe what you are selling' className="form-control mb-5" aria-label="Default" aria-describedby="inputGroup-sizing-default" ></textarea>
 </div>
 
 
 <button type="submit" class="btn btn-primary fixed-bottom  ">save</button>:
- <button type="button" class="btn btn-success fixed-bottom  ">Next</button>
+ {/* <button type="button" class="btn btn-success fixed-bottom  ">Next</button> */}
 
 
 
