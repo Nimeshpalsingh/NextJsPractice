@@ -10,66 +10,66 @@ import Link from "next/link";
 import { Website } from '../../../../../../../Variable';
 
 
-export async function getStaticPaths() {
+// export async function getStaticPaths() {
 
-    const res = await fetch(`${Website}plotlandget.php`)
-    const data = await res.json();
-    console.log(data);
-const paths = data.map((y)=>{
-    return{  
-params:{
+//     const res = await fetch(`${Website}plotlandget.php`)
+//     const data = await res.json();
+//     console.log(data);
+// const paths = data.map((y)=>{
+//     return{  
+// params:{
 
-  page:y.name,
-  page1:y.city,
-  page2:y.region,
-  page3:y.locarea,
-pageno:y.pid.toString(),
+//   page:y.name,
+//   page1:y.city,
+//   page2:y.region,
+//   page3:y.locarea,
+// pageno:y.pid.toString(),
 
-},
+// },
 
-}});
-
-
-return{
-paths,
-fallback:true,
+// }});
 
 
-}
+// return{
+// paths,
+// fallback:true,
+
+
+// }
 
 
 
-  }
-
-
-  export async function getStaticProps(context) {
-  const id =  context.params.pageno;
-  debugger;
-  console.log(context)
-    const res = await fetch(`${Website}mycarddetails.php?card_id=`+id)
-    const data = await res.json();
-
-  return {
-      props: { data }, // will be passed to the page component as props
-    }
-
-
-  }
-
-  
-
-//   export async function getServerSideProps({query}) {
-//     // Fetch data from external API
-//  const {pageno} =  query;
-
-// //   
-// // console.log(context.params)
-//     const res = await fetch(`${Website}mycarddetails.php?card_id=`+pageno)
-//     const data = await res.json()
-  
-//     // Pass data to the page via props
-//     return { props: { data } }
 //   }
+
+
+//   export async function getStaticProps(context) {
+//   const id =  context.params.pageno;
+//   debugger;
+//   console.log(context)
+//     const res = await fetch(`${Website}mycarddetails.php?card_id=`+id)
+//     const data = await res.json();
+
+//   return {
+//       props: { data }, // will be passed to the page component as props
+//     }
+
+
+//   }
+
+  
+
+  export async function getServerSideProps({query}) {
+    // Fetch data from external API
+ const {pageno} =  query;
+
+//   
+// console.log(context.params)
+    const res = await fetch(`${Website}mycarddetails.php?card_id=`+pageno)
+    const data = await res.json()
+  
+    // Pass data to the page via props
+    return { props: { data } }
+  }
 
 
 
