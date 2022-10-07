@@ -4,7 +4,7 @@ import Navbar from '../componet/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from '../componet/Search';
 import { Website } from '../Variable';
-import slugify from 'slugify';
+var slugify = require('slugify')
 
 
 
